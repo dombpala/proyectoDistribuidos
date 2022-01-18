@@ -1,0 +1,27 @@
+version: "3"
+services:
+  back:
+    build: ./server
+    links:
+      - db
+    ports:
+      - "5000:5000"
+
+  front:
+    build:
+      context: ./
+    volumes:
+      - /proyectoDistribuidos/frontend:/var/www/html/
+    links:
+      - back
+    ports:
+      - "8000:80"
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
