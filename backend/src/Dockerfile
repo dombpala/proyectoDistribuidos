@@ -1,9 +1,9 @@
-FROM python:3.7.10-alpine
+FROM python:3.7-alpine
 
-COPY . /server
-WORKDIR /server
+WORKDIR /app
 
+COPY . .
 # Install dependencies
 RUN pip install -r requirements.txt 
 
-CMD python router.py
+CMD ["python", "router.py"]

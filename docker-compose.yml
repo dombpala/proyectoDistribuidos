@@ -1,20 +1,14 @@
-version: "3"
+version: "3.9"
 services:
   back:
-    build:
-      context: ./
-    volumes:
-      - /proyectoDistribuidos/backend/src:/app
+    build: ./backend/src
     links:
       - db
     ports:
       - "5000:5000"
 
   front:
-    build:
-      context: ./
-    volumes:
-      - /proyectoDistribuidos/frontend:/var/www/html/
+    build: ./frontend
     links:
       - back
     ports:
