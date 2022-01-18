@@ -1,7 +1,10 @@
 version: "3"
 services:
   back:
-    build: ./server
+    build:
+      context: ./
+    volumes:
+      - /proyectoDistribuidos/backend:/app
     links:
       - db
     ports:
@@ -22,6 +25,6 @@ services:
     ports:
       - "3000:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: dombpala_YUGIOHGX99
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro
