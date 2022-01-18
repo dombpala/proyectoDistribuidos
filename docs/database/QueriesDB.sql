@@ -14,9 +14,8 @@ CREATE TABLE `gestion_mascotas`.`voluntario` (
   `id_persona` VARCHAR(10) NOT NULL,
   `tipo` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id_persona`),
-  CONSTRAINT `id_persona`
-    FOREIGN KEY (`id_persona`)
-    REFERENCES `gestion_mascotas`.`persona` (`cedula`)
+  CONSTRAINT `id_persona` FOREIGN KEY (`id_persona`)
+  REFERENCES `gestion_mascotas`.`persona` (`cedula`)
 );
 
 CREATE TABLE `gestion_mascotas`.`donacion` (
@@ -24,9 +23,9 @@ CREATE TABLE `gestion_mascotas`.`donacion` (
   `fecha` DATE NOT NULL,
   `id_donante` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `id_donante_idx` (`id_donante` ASC) VISIBLE,
   CONSTRAINT `id_donante` FOREIGN KEY (`id_donante`)
-  REFERENCES `gestion_mascotas`.`persona` (`cedula`)
+  REFERENCES `gestion_mascotas`.`persona` (`cedula`),
+  INDEX `id_donante_idx` (`id_donante` ASC) VISIBLE
 );
 
 CREATE TABLE `gestion_mascotas`.`donacion_item` (
@@ -52,11 +51,11 @@ CREATE TABLE `gestion_mascotas`.`adopcion` (
   `id_mascota` INT NOT NULL,
   `fecha` DATE NOT NULL,
   PRIMARY KEY (`id_duenio`, `id_mascota`),
-  INDEX `id_mascota_idx` (`id_mascota` ASC) VISIBLE,
   CONSTRAINT `id_duenio` FOREIGN KEY (`id_duenio`)
   REFERENCES `gestion_mascotas`.`persona` (`cedula`),
   CONSTRAINT `id_mascota` FOREIGN KEY (`id_mascota`)
-  REFERENCES `gestion_mascotas`.`mascota` (`id`)
+  REFERENCES `gestion_mascotas`.`mascota` (`id`),
+  INDEX `id_mascota_idx` (`id_mascota` ASC) VISIBLE
 );
 
 
