@@ -74,16 +74,16 @@
     function getData($data_parameter){
         switch ($data_parameter) {
             case 'pet':
-                return json_decode(file_get_contents('http://localhost:5000/mascotas/'),true);
+                return json_decode(file_get_contents('http://back:5000/mascotas/'),true);
                 break;
             case 'donations':
-                return json_decode(file_get_contents('http://localhost:5000/donaciones/'),true);
+                return json_decode(file_get_contents('http://back:5000/donaciones/'),true);
                 break;
             case 'sponsors':
-                return json_decode(file_get_contents('http://localhost:5000/patrocinadores/'),true);
+                return json_decode(file_get_contents('http://back:5000/patrocinadores/'),true);
                 break;
             case 'volunteers':
-                return json_decode(file_get_contents('http://localhost:5000/voluntarios/'),true);
+                return json_decode(file_get_contents('http://back:5000/voluntarios/'),true);
                 break;
         }
         

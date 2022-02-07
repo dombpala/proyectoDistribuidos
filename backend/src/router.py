@@ -35,11 +35,6 @@ class RouterPatrocinadores(Resource):
         Patrocinadores = Persona.query.filter_by(tipo="patrocinador").all()
         return jsonify([p.serialize() for p in Patrocinadores])
     
-class RouterVoluntario(Resource):
-    def get(self, type):
-        p = Persona.query.filter_by(cedula=persona_id).first()
-        return {"id":p.cedula,"name":p.nombre,"last_name":p.apellido,"birthdate":p.fechaNacimiento.isoformat(),"type":p.tipo}
- 
 
 class RouterDonacion(Resource):
     def get(self, donacion_id):

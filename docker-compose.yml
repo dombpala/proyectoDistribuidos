@@ -2,23 +2,10 @@ version: "3"
 services:
   back:
     build: ./backend/src
-    links:
-      - db
     ports:
       - "5000:5000"
 
   front:
     build: ./frontend
-    links:
-      - back
     ports:
       - "80:80"
-
-  db:
-    image: mysql:5.7
-    ports:
-      - "3000:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: proyectodistribuidos
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro

@@ -9,7 +9,7 @@
             )
         );
         $context  = stream_context_create($opts);
-        file_get_contents('http://localhost:5000/adopcion/', false, $context);
+        file_get_contents('http://back:5000/adopcion/', false, $context);
         header('Location: '.$redirect_path.' ');       
     }
 
